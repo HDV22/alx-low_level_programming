@@ -1,35 +1,21 @@
-#include <stdio.h>
 #include "main.h"
-
 /**
- * puts_half - prints a string
- * @str: string to print
- *
- * Return: nothing
+ * leet - function that encode a string
+ * @str:string that will be encoded
+ * Return:returns encoded string
  */
-
-void puts_half(char *str)
+char *leet(char *str)
 {
-	int i, len = _strlen(str);
-
-	for (i = ((len - 1) / 2) + 1; i < len; i++)
-		putchar(*(str + i));
-	putchar(10);
+int index1 = 0, index2;
+char leet[8] = {'O', 'L', '?', 'E', 'A', '?', '?', 'T'};
+while (str[++index1])
+{
+for (index2 = 0; index2 <= 7; index2++)
+{
+if (str[index1] == leet[index2] ||
+str[index1] - 32 == leet[index2])
+str[index1] = index2 + '0';
 }
-
-/**
-* _strlen - returns the length of a string
-* @s: string
-*
-* Return: the length of the given string
-*/
-
-int _strlen(char *s)
-{
-	int len = 0;
-
-	while (*(s + len) != '\0')
-		len++;
-
-	return (len);
+}
+return (str);
 }
